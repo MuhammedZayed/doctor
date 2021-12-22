@@ -1,0 +1,147 @@
+<html>
+<head>
+  <title>Doctor prescription</title>
+  <link rel="icon" href="images/doctor.png" type="image/gif" >
+<link rel="stylesheet" href="Bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.min.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-reboot.min.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css.map">
+    <script src="Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.js.map"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="Bootstrap/js/bootstrap.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<!-- HTML5 Speech Recognition API -->
+<!-- CSS Styles -->
+
+</head>
+    <body>
+      <div class="logo">
+        <img
+            src="https://seeklogo.com/images/H/hospital-clinic-plus-logo-7916383C7A-seeklogo.com.png" />
+    </div>
+        <center ><h1 class="d1">DOCTOR PRESCRIPTION</h1></center>
+<!-- Search Form -->
+ <div style="padding-left:450px">
+<form name="myform" method="post" onsubmit="return validateform()">
+  <div class="form-group">
+    <label for="SerialNo">Serial No:</label>
+    <select class="form-control" style="width:50%" id="SerialNo" >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        
+    </select>
+  </div>
+        <div class="form-group">
+    <label for="name">
+      Doctor Name:</label>
+    <input type="text" class="form-control" style="width:50%" id="name" placeholder="Doctor Name:">
+            <img src="mike.jpg" width="40px" onclick="startDictation('name')">
+  </div>
+    <div class="form-group">
+    <label for="fathername">Patient Name:</label>
+    <input type="text" class="form-control" style="width:50%" id="fathername" placeholder="Patient Name:">
+    <img src="mike.jpg" width="40px" onclick="startDictation('fathername')">
+  </div>
+        <div class="form-group">
+    <label for="department">Age:</label>
+    <input type="text" class="form-control" id="department" style="width:50%" placeholder="Age:">
+    <img src="mike.jpg" width="40px" onclick="startDictation('department')">
+  </div>
+        <div class="form-group">
+    <label for="designation">Sex:</label>
+    <input type="text" class="form-control" id="sex" style="width:50%" placeholder="Sex:">
+    <img src="mike.jpg" width="40px" onclick="startDictation('sex')">
+  </div>
+  <div class="form-group">
+    <label for="designation">Mobile No:</label>
+    <input type="text" class="form-control" id="mobile" style="width:50%" placeholder="Mobile No:">
+    <img src="mike.jpg" width="40px" onclick="startDictation('mobile')">
+  </div>
+  <div class="form-group">
+    <label for="department">Symptoms</label>
+    <input type="text" class="form-control" id="Symptoms" style="width:50%" placeholder="Symptoms">
+    <img src="mike.jpg" width="40px" onclick="startDictation('Symptoms')">
+  </div>
+  <div class="form-group">
+    <label for="department">Dignosis</label>
+    <input type="text" class="form-control" id="dignosis" style="width:50%" placeholder="Dignosis">
+    <img src="mike.jpg" width="40px" onclick="startDictation('dignosis')">
+  </div>
+  <div class="form-group">
+    <label for="department">Medicine Recommended</label>
+    <input type="text" class="form-control" id="medicine" style="width:50%" placeholder="Medicine Recommended">
+    <img src="mike.jpg" width="40px" onclick="startDictation('medicine')">
+  </div>
+  <div class="form-group">
+    <label for="department">Tests
+    </label>
+    <input type="text" class="form-control" id="test" style="width:50%" placeholder="Tests">
+    <img src="mike.jpg" width="40px" onclick="startDictation('test')">
+  </div>
+  <div class="form-group">
+    <label for="department">Advice
+    </label>
+    <input type="text" class="form-control" id="advice" style="width:50%" placeholder="Advice">
+    <img src="mike.jpg" width="40px" onclick="startDictation('advice')">
+  </div>
+    
+       
+</body>
+<script>
+    
+     function startDictation(x) {
+  
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "en-Us";
+      recognition.start();
+      recognition.onresult = function(e) {
+          if(x=="phone" || x=="aadhar")
+              {
+        document.getElementById(x).value = parseInt(e.results[0][0].transcript);
+        recognition.stop();
+              }
+          else{ 
+              document.getElementById(x).value= e.results[0][0].transcript;
+        recognition.stop();
+          }
+       };
+
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+
+    }
+  
+  
+  }
+    </script>
+</html>

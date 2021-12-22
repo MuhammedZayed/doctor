@@ -1,0 +1,17 @@
+body{
+    background-image: url(images/coronavirus-doctor-working-hospital-copy-text-background-banner-doctors-hospitals-fighting-male-protective-suit-mask-178768043.jpg);
+
+}
+.speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
+.speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
+.speech img {float: right; width: 40px;
+}
+.d1{
+    color: orange;
+}
+.form-group label{
+
+} 
+.logo{
+    text-align: center;
+}
